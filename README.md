@@ -322,11 +322,16 @@ all_trips_v2 %>%
   `summarise()` has grouped output by 'member_casual'. You can override using the
 `.groups` argument.
   
-  ![unnamed-chuck-20-1](https://github.com/ChristinaRo12/Cyclistic-bike-share-analysis-case-study/blob/afccd5e308903098ded2de9ca32a2a7f84d828bc/Visualization%20the%20number%20of%20rides%20by%20ride%20types.png)
+  ![unnamed-chuck-1-1](https://github.com/ChristinaRo12/Cyclistic-bike-share-analysis-case-study/blob/afccd5e308903098ded2de9ca32a2a7f84d828bc/Visualization%20the%20number%20of%20rides%20by%20ride%20types.png)
   
-
+From this visualization we realize that members rode more on the weekdays compared to causal users. Also casuals rode more during the weekends.
+  
 ### Let's create a visualization for average duration
-all_trips_v2 %>% 
+
+  `summarise()` has grouped output by 'member_casual'. You can override using the
+`.groups` argument.
+  
+  all_trips_v2 %>% 
   mutate(weekday = wday(started_at, label = TRUE)) %>% 
   group_by(member_casual, weekday) %>% 
   summarise(number_of_rides = n()
@@ -335,18 +340,23 @@ all_trips_v2 %>%
   ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
   geom_col(position = "dodge")
 
-![unnamed-chuck-22-1](![unnamed-chuck-20-1](https://raw.githubusercontent.com/ChristinaRo12/Cyclistic-bike-share-analysis-case-study/afccd5e308903098ded2de9ca32a2a7f84d828bc/Visualization%20for%20average%20duration.png))
-
-#### Step 5: Export summary file for further analysis
+![unnamed-chuck-2-1](https://raw.githubusercontent.com/ChristinaRo12/Cyclistic-bike-share-analysis-case-study/afccd5e308903098ded2de9ca32a2a7f84d828bc/Visualization%20for%20average%20duration.png)
   
-  counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
+From the average duration visualization we realize that on average casuals rode more than the members in any given day. During the weekends both the riders rode more compared to the weekdays. 
+
+### Step 5: Export summary file for further analysis
+  
+ counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
 write.csv(counts, file = 'avg_ride_length.csv')
 
+This is the summary file that can be saved on the desktop using this code. This is the [link](https://github.com/ChristinaRo12/Cyclistic-bike-share-analysis-case-study/blob/main/avg_ride_length.csv) to the csv file.
+## Act
+ 
+### The top three recommendation for the marketing according to my analysis
 
-
-
-
-
-
-
-
+1.) Giving discounts to the members during the busy time of the week which is the weekend. This can make casual riders become members. 
+           
+2.) Promote a sense of community by having a campaign on how riding bikes changed lives and which might increase membership.
+           
+3.) Extending extra benefits to the members and giving week days more facilities. 
+          
