@@ -322,7 +322,7 @@ all_trips_v2 %>%
   `summarise()` has grouped output by 'member_casual'. You can override using the
 `.groups` argument.
   
-  
+  ![unnamed-chuck-20-1](https://github.com/ChristinaRo12/Cyclistic-bike-share-analysis-case-study/blob/afccd5e308903098ded2de9ca32a2a7f84d828bc/Visualization%20the%20number%20of%20rides%20by%20ride%20types.png)
   
 
 ### Let's create a visualization for average duration
@@ -334,6 +334,8 @@ all_trips_v2 %>%
   arrange(member_casual, weekday)  %>% 
   ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
   geom_col(position = "dodge")
+
+![unnamed-chuck-22-1](![unnamed-chuck-20-1](https://raw.githubusercontent.com/ChristinaRo12/Cyclistic-bike-share-analysis-case-study/afccd5e308903098ded2de9ca32a2a7f84d828bc/Visualization%20for%20average%20duration.png))
 
 #### Step 5: Export summary file for further analysis
   
