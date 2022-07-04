@@ -306,7 +306,7 @@ all_trips_v2 %>%
 
 ## Share
   
-  I be sharing the visualization portion of my case study on this phase. 
+  I be sharing the visualization portion of my case study on this phase. I be using Rstudio and be sharing my thoughts on the visualization on here. 
   
   ### Let's visualize the number of rides by rider type
 
@@ -322,8 +322,10 @@ all_trips_v2 %>%
   `summarise()` has grouped output by 'member_casual'. You can override using the
 `.groups` argument.
   
+  
+  
 
-# Let's create a visualization for average duration
+### Let's create a visualization for average duration
 all_trips_v2 %>% 
   mutate(weekday = wday(started_at, label = TRUE)) %>% 
   group_by(member_casual, weekday) %>% 
@@ -333,7 +335,7 @@ all_trips_v2 %>%
   ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
   geom_col(position = "dodge")
 
-#Step 5: Export summary file for further analysis
+#### Step 5: Export summary file for further analysis
   
   counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
 write.csv(counts, file = 'avg_ride_length.csv')
