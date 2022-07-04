@@ -34,7 +34,7 @@ Business Task/Question:
 
 ## **Prepare**
 
-I am using the data from [https://divvy-tripdata.s3.amazonaws.com/index.html](https://divvy-tripdata.s3.amazonaws.com/index.html) which was provided by the case study. These are all csv files. I was instructed to download the previous 12 month’s data which is June 2021 to May 2022. The original data is made available by Motivate International Inc.under this [license](https://ride.divvybikes.com/data-license-agreement). Data has integrity since all the files have consistent columns and each column has the correct type of data. I be using Rstudio to do my all work since I be working with large amount of data. 
+I am using the data from [https://divvy-tripdata.s3.amazonaws.com/index.html](https://divvy-tripdata.s3.amazonaws.com/index.html) which was provided by the case study. These are all csv files. I was instructed to download the previous 12 month’s data which is June 2021 to May 2022. The original data is made available by Motivate International Inc.under this [license](https://ride.divvybikes.com/data-license-agreement). Data has integrity since all the files have consistent columns and each column has the correct type of data. I be using Rstudio to do all my work since I be working with large amount of data. 
 
 ### Download data and store it
 
