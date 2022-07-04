@@ -194,20 +194,83 @@ max(all_trips_v2$ride_length) #longest ride
 min(all_trips_v2$ride_length) #shortest ride
 summary(all_trips_v2$ride_length) #condense the four lines above to one line using summary() on the specific attribute
 
+
 ### Compare members and casual users
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = mean)
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = median)
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = max)
-aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = min)
+aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = min) 
 
 ### See the average ride time by each day for members vs casual users
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
+
+ all_trips_v2$member_casual all_trips_v2$day_of_week all_trips_v2$ride_length
+ 
+1                      casual                   Friday           1726.9270 secs
+
+2                      member                   Friday            766.9928 secs
+
+3                      casual                   Monday           1831.8559 secs
+
+4                      member                   Monday            758.7587 secs
+
+5                      casual                 Saturday           2010.6898 secs
+
+6                      member                 Saturday            877.4628 secs
+
+7                      casual                   Sunday           2121.5550 secs
+
+8                      member                   Sunday            887.9880 secs
+
+9                      casual                 Thursday           1662.6278 secs
+
+10                     member                 Thursday            746.6120 secs
+
+11                     casual                  Tuesday           1574.6878 secs
+
+12                     member                  Tuesday            736.7667 secs
+
+13                     casual                Wednesday           1599.5752 secs
+
+14                     member                Wednesday            738.6056 secs
+
 
 ### Notice that the days of the week are out of order. Let's fix that.
 all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 
 ### Now, let's run the average ride time by each day for members vs casual users
+
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
+
+all_trips_v2$member_casual all_trips_v2$day_of_week all_trips_v2$ride_length
+
+1                      casual                   Sunday           2121.5550 secs
+
+2                      member                   Sunday            887.9880 secs
+
+3                      casual                   Monday           1831.8559 secs
+
+4                      member                   Monday            758.7587 secs
+
+5                      casual                  Tuesday           1574.6878 secs
+
+6                      member                  Tuesday            736.7667 secs
+
+7                      casual                Wednesday           1599.5752 secs
+
+8                      member                Wednesday            738.6056 secs
+
+9                      casual                 Thursday           1662.6278 secs
+
+10                     member                 Thursday            746.6120 secs
+
+11                     casual                   Friday           1726.9270 secs
+
+12                     member                   Friday            766.9928 secs
+
+13                     casual                 Saturday           2010.6898 secs
+
+14                     member                 Saturday            877.4628 secs
 
 ### analyze ridership data by type and weekday
 all_trips_v2 %>% 
@@ -216,7 +279,28 @@ all_trips_v2 %>%
   summarise(number_of_rides = n()							#calculates the number of rides and average duration 
             ,average_duration = mean(ride_length)) %>% 		# calculates the average duration
   arrange(member_casual, weekday)								# sorts
-
+  
+  `summarise()` has grouped output by 'member_casual'. You can override using the
+`.groups` argument.
+  A tibble: 14 × 4
+  Groups:   member_casual [2]
+   member_casual weekday number_of_rides average_duration
+   <chr>         <ord>             <int> <drtn>          
+ 1 casual        Sun              470098 2121.5550 secs  
+ 2 casual        Mon              302042 1831.8559 secs  
+ 3 casual        Tue              286986 1574.6878 secs  
+ 4 casual        Wed              285732 1599.5752 secs  
+ 5 casual        Thu              308584 1662.6278 secs  
+ 6 casual        Fri              359969 1726.9270 secs  
+ 7 casual        Sat              546090 2010.6898 secs  
+ 8 member        Sun              394650  887.9880 secs  
+ 9 member        Mon              466086  758.7587 secs  
+10 member        Tue              524769  736.7667 secs  
+11 member        Wed              512565  738.6056 secs  
+12 member        Thu              501778  746.6120 secs  
+13 member        Fri              459766  766.9928 secs  
+14 member        Sat              441015  877.4628 secs  
+> 
 
 
 
