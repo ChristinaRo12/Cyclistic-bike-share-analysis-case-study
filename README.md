@@ -2,7 +2,7 @@
 By Christina Rozario
 ### **Introduction:**
 
-This is a case study I had to do to get my google data analytic certification under Google Data Analytics Capstone: Complete a Case Study. This portfolio is representing my work for the case study. The data of the case study can be found in this [link](https://divvy-tripdata.s3.amazonaws.com/index.html). The name of the case study is Cyclistic bike-share analysis case study. Cyclistic is a fictional company. The original data is made available by Motivate International Inc.under this license. 
+This is a case study I had to do to get my google data analytic certification under Google Data Analytics Capstone: Complete a Case Study. This portfolio is representing my work for the case study. The data of the case study can be found in this [link](https://divvy-tripdata.s3.amazonaws.com/index.html). The name of the case study is Cyclistic bike-share analysis case study. Cyclistic is a fictional company. The original data is made available by Motivate International Inc.under this [license](https://ride.divvybikes.com/data-license-agreement). 
 
 To answer the business questions I am going to follow the steps of the data analysis process: ask,prepare, process, analyze, share, and act. Each of these steps is going to have : 1.) Guiding questions 2.) Key tasks 3.) Deliverable 4.) Any other steps such as using tools and codes. I’m going to also present from the case study directly first the scenario and the characters & team below to answer the questions. 
 
