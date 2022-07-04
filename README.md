@@ -308,8 +308,9 @@ all_trips_v2 %>%
   
   I be sharing the visualization portion of my case study on this phase. 
   
-  # Let's visualize the number of rides by rider type
-all_trips_v2 %>% 
+  ### Let's visualize the number of rides by rider type
+
+  all_trips_v2 %>% 
   mutate(weekday = wday(started_at, label = TRUE)) %>% 
   group_by(member_casual, weekday) %>% 
   summarise(number_of_rides = n()
@@ -317,6 +318,10 @@ all_trips_v2 %>%
   arrange(member_casual, weekday)  %>% 
   ggplot(aes(x = weekday, y = number_of_rides, fill = member_casual)) +
   geom_col(position = "dodge")
+  
+  `summarise()` has grouped output by 'member_casual'. You can override using the
+`.groups` argument.
+  
 
 # Let's create a visualization for average duration
 all_trips_v2 %>% 
