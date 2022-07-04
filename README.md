@@ -272,7 +272,7 @@ all_trips_v2$member_casual all_trips_v2$day_of_week all_trips_v2$ride_length
 
 14                     member                 Saturday            877.4628 secs
 
-### analyze ridership data by type and weekday
+### Analyze ridership data by type and weekday
 all_trips_v2 %>% 
   mutate(weekday = wday(started_at, label = TRUE)) %>%  #creates weekday field using wday()
   group_by(member_casual, weekday) %>%  #groups by usertype and weekday
