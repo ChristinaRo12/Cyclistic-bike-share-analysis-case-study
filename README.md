@@ -301,6 +301,38 @@ all_trips_v2 %>%
 13 member        Fri              459766  766.9928 secs  
 14 member        Sat              441015  877.4628 secs  
 > 
+### Summary of my analysis:
+  I have found that if I compare average ride time by each day for members vs casual users the casuals rode twice comparing the members in any day. Also if we compare week days vs weekend average duration of rides we can see that on weekends both causals and members rode more comparing the weekdays. The causals rode the highest on Sundays which is twice the time rides of the members. 
+
+## Share
+  
+  I be sharing the visualization portion of my case study on this phase. 
+  
+  # Let's visualize the number of rides by rider type
+all_trips_v2 %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>% 
+  group_by(member_casual, weekday) %>% 
+  summarise(number_of_rides = n()
+            ,average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, weekday)  %>% 
+  ggplot(aes(x = weekday, y = number_of_rides, fill = member_casual)) +
+  geom_col(position = "dodge")
+
+# Let's create a visualization for average duration
+all_trips_v2 %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>% 
+  group_by(member_casual, weekday) %>% 
+  summarise(number_of_rides = n()
+            ,average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, weekday)  %>% 
+  ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
+  geom_col(position = "dodge")
+
+#Step 5: Export summary file for further analysis
+  
+  counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
+write.csv(counts, file = 'avg_ride_length.csv')
+
 
 
 
