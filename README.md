@@ -349,7 +349,7 @@ From the average duration visualization we realize that on average casuals rode 
  counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
 write.csv(counts, file = 'avg_ride_length.csv')
 
-This is the summary file that can be saved on the desktop using this code. This is the [link](https://github.com/ChristinaRo12/Cyclistic-bike-share-analysis-case-study/blob/main/avg_ride_length.csv) to the csv file.
+This is the summary file that can be saved on the desktop using this code. This is the [link](https://github.com/ChristinaRo12/Cyclistic-bike-share-analysis-case-study/blob/main/avg_ride_length.csv) to the csv file which is uploaded to the github repository.
 ## Act
  
 ### The top three recommendation for the marketing according to my analysis
